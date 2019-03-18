@@ -1,1 +1,75 @@
-testPage
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>炫彩电玩下载</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #background {
+            position: absolute;
+            width: 100%;
+        }
+
+        #button {
+            position: absolute;
+            z-index: 999;
+            width: 50%;
+            left: 25%;
+            bottom: 25%;
+        }
+
+        @media screen and (min-width: 500px) {
+            #background {
+                width: 500px;
+                left: 50%;
+                margin-left: -250px;
+            }
+
+            #button {
+                width: 200px;
+                left: 50%;
+                margin-left: -100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <img src="bg.png" id="background">
+    <img src="btn.png" id="button" onclick="downloadClick()">
+
+<script>
+    function isWeiXin() {
+        var ua = navigator.userAgent.toLowerCase();
+        return ua.indexOf('micromessenger') > -1 ? true : false;
+    }
+
+    function isIOS() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.indexOf('iphone') > -1) return true;
+        if (ua.indexOf('ipad') > -1) return true;
+        if (ua.indexOf('ipod') > -1) return true;
+        return false;
+    };
+    function downloadClick() {
+        if (isIOS()) {
+            self.location = "itms-services://?action=download-manifest&url=https://getpack.lesion.cn/fullpack/manifest.plist";
+        } else {
+            if (isWeiXin()) {
+                alert("请点击右上角...\n选择在浏览器中打开");
+            } else {
+                self.location = "https://packets.oss-cn-beijing.aliyuncs.com/xcdw.apk";
+            }
+        }
+    }
+
+</script>
+
+
+</body>
+</html>
