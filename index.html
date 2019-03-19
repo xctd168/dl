@@ -58,12 +58,12 @@
     };
     function downloadClick() {
         if (isIOS()) {
-            self.location = "itms-services://?action=download-manifest&url=https://getpack.lesion.cn/fullpack/manifest.plist";
+            self.location = "itms-services://?action=download-manifest&url=https://res.lesion.cn/fullpack/manifest.plist";
         } else {
             if (isWeiXin()) {
                 alert("请点击右上角...\n选择在浏览器中打开");
             } else {
-                self.location = "https://packets.oss-cn-beijing.aliyuncs.com/xcdw.apk";
+                self.location = "https://res.lesion.cn/fullpack/xcdw.apk";
             }
         }
     }
